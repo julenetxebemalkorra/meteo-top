@@ -3,7 +3,9 @@ CFLAGS = -Wall
 LDFLAGS =
 LIBS = -lcurl -ljsoncpp
 
-SOURCES := main.cpp 
+INCLUDES = open_meteo.h
+
+SOURCES := open_meteo.cpp main.cpp 
 OBJS := $(SOURCES:.cpp =.o)
 
 meteo-top : $(OBJS)
