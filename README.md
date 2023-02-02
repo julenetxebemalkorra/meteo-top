@@ -49,7 +49,31 @@ Evaluación:
 Preguntas adicionales:
 
 	1. ¿Qué formato has escogido para serializar los datos de meteo en stdout? ¿Porqué?
+	He utilizado std::cout para serializar los datos de salida obtenidas desde la API. Por otro lado he utilizado fprintf, para poder canalizar los posibles errores y mandarlos por la salida stderr y que el usuario pueda guardarlos en un fichero.
 	2. ¿Qué pasaría si la API no responde?
+	El mensaje de error se mandara por stderr y la aplicacion saldra
 	3. ¿Has utilizado alguna librería externa? Justifica tu elección.
+	He utilizado dos librerias externas. 
+	#include <curl/curl.h> para poder trabajar con url de una manera sencilla
+	#include <json/json.h>  para poder trabajar con las estructuras json de una manera sencilla
 	4. ¿Cómo de complicado sería migrar el sistema para que utilizase otra forma de comunicación en lugar de stdout?
+	Se tendria que elegir al alternativa adecuada y utilizar las librerias correspondientes.
 	5. Si tuvieras que diseñar este sistema teniendo en cuenta sólo los requisitos. ¿Utilizarías C++ u otra tecnología? ¿Qué te haría elegir C++ o esa tecnología?
+	Puesto JSON es una estructura de Java, elegiria esat tecnologia para interactuar con ella.
+	
+	
+	
+	
+	Instrucciones de uso:
+	
+	1- Install GCC (C and C++ Compiler) and Development Tools,
+	2- Installar la libreria curl: https://www.tecmint.com/install-curl-in-linux/
+	3- Instalarte la libreria jsoncpp
+	4- Descargarte lso ficheros del repositorio
+	5- make : creara una aplicacion ejecutable .exe
+	6- ejecutar la aplicacion:
+		- ./meteo-top.exe 5 2>&1 | tee logfile.txt
+		- La aplicaion recive un argumento que es el periodo de muestreo, si no recive ningun valor se utiliza el default que es: DEFAULT_SLEEP_TIME  60
+		- Una vez empezado se le piden al usuario la coordenadas de donde se quiere obtener la informacion metereologica. Si no se recive dicha informacion se elige la ubicacion de Berastegi.
+		- El usuario puede dirigir el stdoutput a un fichero, en nuestro caso a logfile.txt. Se guardara toda la informacion en ella.
+	
